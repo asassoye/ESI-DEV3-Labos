@@ -92,7 +92,7 @@ unsigned gcd(unsigned a, unsigned b) {
         return a;
     }
 
-    gcd(b, a % b);
+    return gcd(b, a % b);
 }
 
 void printGcd(unsigned a, unsigned b, bool newline) {
