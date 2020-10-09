@@ -3,3 +3,4 @@ project(dev3 C)
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/td01" "${PROJECT_SOURCE_DIR}/td01/build")
 add_subdirectory("${PROJECT_SOURCE_DIR}/td02" "${PROJECT_SOURCE_DIR}/td02/build")
+add_subdirectory("${PROJECT_SOURCE_DIR}/td03" "${PROJECT_SOURCE_DIR}/td03/build")
