@@ -39,3 +39,40 @@ char *strncpy( char *dest, const char *src, size_t count )  {
 
     return dest;
 }
+
+char *strcat(char *dest, const char *src) {
+    unsigned destLen = strlen(dest);
+    unsigned srcLen = strlen(src);
+
+    for (unsigned i = 0; i < srcLen; ++i) {
+        dest[destLen + i] = src[i];
+    }
+
+    return dest;
+}
+
+char *strtok( char *str, const char *delim ) {
+    static char* nextToken;
+
+    if (str != NULL) {
+        nextToken = str;
+    }
+
+    if (nextToken == NULL) {
+        return NULL;
+    }
+
+    char* actualToken = nextToken;
+
+    char* c;
+    for (c = actualToken; *c != *delim && *c != '\0'; c++);
+
+    if (*c == '\0') {
+        nextToken = NULL;
+    } else {
+        *c = '\0';
+        nextToken = c + 1;
+    }
+
+    return actualToken;
+}
