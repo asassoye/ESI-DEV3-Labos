@@ -51,4 +51,26 @@ int main() {
 
     free(multiplicites);
     free(facteurs);
+
+    printf("\n\tEXERCICE 4.3\n");
+
+    nbElem = 0;
+    PrimeFactor* decompositionC = primeFactorsC(&nbElem, 84);
+
+    printf("- nbElem contient la valeur %d\n", nbElem);
+    printf("- Le contenu du tableau de PrimeFactor est: {");
+    for (int i = 0; i < nbElem; ++i) {
+        primeFactor_print(&(decompositionC[i]));
+        if (i != nbElem - 1) {
+            printf(" ");
+        }
+    }
+    printf("}\n");
+
+    printf("\n\tEXERCICE 4.4\n");
+    PrimeFactorization* f = PrimeFactorization_new(84);
+    primeFactorD(f);
+
+    PrimeFactorization_print(f);
+    PrimeFactorization_free(f);
 }

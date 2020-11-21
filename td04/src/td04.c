@@ -80,3 +80,58 @@ unsigned primeFactorsB(unsigned **factor, unsigned **multiplicity, unsigned numb
     return count;
 }
 
+PrimeFactor* primeFactorsC(unsigned int *count, unsigned int number) {
+    assert(*count == 0);
+
+    PrimeFactor* decomposition = malloc(sizeof(PrimeFactor) * number);
+
+    if (decomposition == NULL) {
+        return NULL;
+    }
+
+    int prime = 2;
+    int power = 0;
+    while (number != 1) {
+        while (number % prime == 0) {
+            number /= prime;
+            ++power;
+        }
+
+        if (power > 0) {
+            primeFactor_setValue(&decomposition[*count], prime);
+            primeFactor_setMultiplicity(&decomposition[*count], power);
+            (*count)++;
+            power = 0;
+        }
+
+        prime = nextPrime(prime);
+    }
+
+    decomposition = realloc(decomposition, sizeof(PrimeFactor) * (*count));
+
+    return decomposition;
+}
+
+void primeFactorD(PrimeFactorization *primeFactorization) {
+    assert(primeFactorization != NULL);
+
+    unsigned number = primeFactorization->number;
+
+    int prime = 2;
+    int power = 0;
+    while (number != 1) {
+        while (number % prime == 0) {
+            number /= prime;
+            ++power;
+        }
+
+        if (power > 0) {
+            PrimeFactorization_addPrimeFactor(primeFactorization, prime, power);
+            power = 0;
+        }
+
+        prime = nextPrime(prime);
+    }
+
+    PrimeFactorization_resizePrimeFactorsArray(primeFactorization);
+}
