@@ -6,7 +6,7 @@
 
 size_t strlen(const char *str) {
     int count = 0;
-    while(str[count] != '\0') {
+    while (str[count] != '\0') {
         ++count;
     }
 
@@ -25,13 +25,13 @@ int strcmp(const char *lhs, const char *rhs) {
     return lhs[0] == rhs[0] ? strcmp(&lhs[1], &rhs[1]) : lhs[0] - rhs[0];
 }
 
-char *strcpy( char *dest, const char *src ) {
+char *strcpy(char *dest, const char *src) {
     size_t length = strlen(src);
 
     return strncpy(dest, src, length);
 }
 
-char *strncpy( char *dest, const char *src, size_t count )  {
+char *strncpy(char *dest, const char *src, size_t count) {
     for (size_t i = 0; i < count; ++i) {
         dest[i] = src[i];
     }
@@ -51,8 +51,8 @@ char *strcat(char *dest, const char *src) {
     return dest;
 }
 
-char *strtok( char *str, const char *delim ) {
-    static char* nextToken;
+char *strtok(char *str, const char *delim) {
+    static char *nextToken;
 
     if (str != NULL) {
         nextToken = str;
@@ -62,9 +62,9 @@ char *strtok( char *str, const char *delim ) {
         return NULL;
     }
 
-    char* actualToken = nextToken;
+    char *actualToken = nextToken;
 
-    char* c;
+    char *c;
     for (c = actualToken; *c != *delim && *c != '\0'; c++);
 
     if (*c == '\0') {

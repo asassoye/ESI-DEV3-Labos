@@ -48,7 +48,7 @@ unsigned primeFactorsB(unsigned **factor, unsigned **multiplicity, unsigned numb
         return 0;
     }
 
-   *multiplicity = malloc(sizeof(unsigned) * number);
+    *multiplicity = malloc(sizeof(unsigned) * number);
     if (*multiplicity == NULL) {
         free(*factor);
         *factor = NULL;
@@ -80,10 +80,10 @@ unsigned primeFactorsB(unsigned **factor, unsigned **multiplicity, unsigned numb
     return count;
 }
 
-PrimeFactor* primeFactorsC(unsigned int *count, unsigned int number) {
+PrimeFactor *primeFactorsC(unsigned int *count, unsigned int number) {
     assert(*count == 0);
 
-    PrimeFactor* decomposition = malloc(sizeof(PrimeFactor) * number);
+    PrimeFactor *decomposition = malloc(sizeof(PrimeFactor) * number);
 
     if (decomposition == NULL) {
         return NULL;

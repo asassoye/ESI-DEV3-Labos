@@ -29,7 +29,7 @@ size_t strlen(const char *str);
  * @return      Zero if lhs and rhs compare equal.
  * @return      Positive value if lhs appears after rhs in lexicographical order.
  */
-int strcmp( const char *lhs, const char *rhs );
+int strcmp(const char *lhs, const char *rhs);
 
 /**
  * Copies the null-terminated byte string pointed to by src, including the null terminator,
@@ -43,7 +43,7 @@ int strcmp( const char *lhs, const char *rhs );
  *
  * @return 	    maximum number of characters to write, typically the size of the destination buffer
  */
-char *strcpy( char *dest, const char *src );
+char *strcpy(char *dest, const char *src);
 
 /**
  * Copies at most count characters of the character array pointed to by src (including the terminating null character,
@@ -63,7 +63,7 @@ char *strcpy( char *dest, const char *src );
  *
  * @return  	    the size of the destination buffer
  */
-char *strncpy( char *dest, const char *src, size_t count );
+char *strncpy(char *dest, const char *src, size_t count);
 
 /**
  * Appends a copy of the null-terminated byte string pointed to by src to the end of the null-terminated byte string
@@ -79,7 +79,7 @@ char *strncpy( char *dest, const char *src, size_t count );
  * @return returns a copy of dest
  * @return returns zero on success, returns non-zero on error. Also, on error, writes zero to dest[0] (unless dest is a null pointer or destsz is zero or greater than RSIZE_MAX).
  */
-char *strcat( char *dest, const char *src );
+char *strcat(char *dest, const char *src);
 
 /**
  * Finds the next token in a null-terminated byte string pointed to by str. The separator characters are identified
@@ -91,6 +91,6 @@ char *strcat( char *dest, const char *src );
  *
  * @return Returns pointer to the beginning of the next token or NULL if there are no more tokens.
  */
-char *strtok( char *str, const char *delim );
+char *strtok(char *str, const char *delim);
 
 #endif //DEV3_STR_H

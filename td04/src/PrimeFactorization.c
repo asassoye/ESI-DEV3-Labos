@@ -34,7 +34,7 @@ void PrimeFactorization_free(PrimeFactorization *primeFactorization) {
     }
 }
 
-void PrimeFactorization_print(PrimeFactorization* primeFactorization) {
+void PrimeFactorization_print(PrimeFactorization *primeFactorization) {
     assert(primeFactorization != NULL);
     assert(primeFactorization->primeFactors != NULL);
 

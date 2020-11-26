@@ -10,7 +10,7 @@
 int main() {
     unsigned nbElem = 0;
     unsigned number = 84;
-    unsigned* decomposition = primeFactorsA(&nbElem, number);
+    unsigned *decomposition = primeFactorsA(&nbElem, number);
 
     printf("%d = {", number);
     for (int i = 0; i < nbElem; ++i) {
@@ -23,8 +23,8 @@ int main() {
     printf("}\n");
     free(decomposition);
 
-    unsigned* facteurs = NULL;
-    unsigned* multiplicites = NULL;
+    unsigned *facteurs = NULL;
+    unsigned *multiplicites = NULL;
     nbElem = primeFactorsB(&facteurs, &multiplicites, 84);
 
     printf("- nbElem contient la valeur %d;\n", nbElem);
@@ -55,7 +55,7 @@ int main() {
     printf("\n\tEXERCICE 4.3\n");
 
     nbElem = 0;
-    PrimeFactor* decompositionC = primeFactorsC(&nbElem, 84);
+    PrimeFactor *decompositionC = primeFactorsC(&nbElem, 84);
 
     printf("- nbElem contient la valeur %d\n", nbElem);
     printf("- Le contenu du tableau de PrimeFactor est: {");
@@ -68,7 +68,7 @@ int main() {
     printf("}\n");
 
     printf("\n\tEXERCICE 4.4\n");
-    PrimeFactorization* f = PrimeFactorization_new(84);
+    PrimeFactorization *f = PrimeFactorization_new(84);
     primeFactorD(f);
 
     PrimeFactorization_print(f);

@@ -8,12 +8,12 @@
 #include "PrimeFactor.h"
 #include "PrimeFactorization.h"
 
-unsigned* primeFactorsA(unsigned* count, unsigned number);
+unsigned *primeFactorsA(unsigned *count, unsigned number);
 
-unsigned primeFactorsB(unsigned** factor, unsigned** multiplicity, unsigned number);
+unsigned primeFactorsB(unsigned **factor, unsigned **multiplicity, unsigned number);
 
-PrimeFactor* primeFactorsC(unsigned* count, unsigned number);
+PrimeFactor *primeFactorsC(unsigned *count, unsigned number);
 
-void primeFactorD(PrimeFactorization* primeFactorization);
+void primeFactorD(PrimeFactorization *primeFactorization);
 
 #endif //DEV3_TD04_H

@@ -26,14 +26,14 @@ void printPrimeFactor(unsigned int number, bool showPower) {
     int prime = 2;
     int power = 0;
     bool first = true;
-    while(number != 1) {
+    while (number != 1) {
         while (number % prime == 0) {
             number /= prime;
             ++power;
         }
 
         if (power > 0) {
-            if(!first) {
+            if (!first) {
                 printf("x ");
             }
 

@@ -3,8 +3,8 @@
 #include <assert.h>
 #include "PrimeFactor.h"
 
-PrimeFactor* primeFactor_new(unsigned int value, unsigned int multiplicity) {
-    PrimeFactor* primeFactor = malloc(sizeof(PrimeFactor));
+PrimeFactor *primeFactor_new(unsigned int value, unsigned int multiplicity) {
+    PrimeFactor *primeFactor = malloc(sizeof(PrimeFactor));
 
     if (primeFactor == NULL) {
         return NULL;

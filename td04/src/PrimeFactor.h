@@ -11,18 +11,18 @@ typedef struct PrimeFactor {
     unsigned multiplicity;
 } PrimeFactor;
 
-PrimeFactor* primeFactor_new(unsigned value, unsigned multiplicity);
+PrimeFactor *primeFactor_new(unsigned value, unsigned multiplicity);
 
-void primeFactor_free(PrimeFactor* primeFactor);
+void primeFactor_free(PrimeFactor *primeFactor);
 
 void primeFactor_print(PrimeFactor *primeFactor);
 
-unsigned primeFactor_getValue(PrimeFactor* primeFactor);
+unsigned primeFactor_getValue(PrimeFactor *primeFactor);
 
-void primeFactor_setValue(PrimeFactor* primeFactor, unsigned value);
+void primeFactor_setValue(PrimeFactor *primeFactor, unsigned value);
 
-unsigned primeFactor_getMultiplicity(PrimeFactor* primeFactor);
+unsigned primeFactor_getMultiplicity(PrimeFactor *primeFactor);
 
-void primeFactor_setMultiplicity(PrimeFactor* primeFactor, unsigned multiplicity);
+void primeFactor_setMultiplicity(PrimeFactor *primeFactor, unsigned multiplicity);
 
 #endif //DEV3_PRIMEFACTOR_H

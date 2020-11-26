@@ -40,7 +40,7 @@ void arrayIntSortGeneric(int data[], unsigned nbElem, int (*comp)(const void *, 
  * @return positive number if a is greater than b
  * @return negative number if b is greater than a
  */
-int comp_asc (const void* a, const void* b);
+int comp_asc(const void *a, const void *b);
 
 /**
  * DESC compare function
@@ -50,6 +50,6 @@ int comp_asc (const void* a, const void* b);
  * @return negative number if a is greater than b
  * @return positive number if b is greater than a
  */
-int comp_desc (const void* a, const void* b);
+int comp_desc(const void *a, const void *b);
 
 #endif //DEV3_TABLEAUX_H

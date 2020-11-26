@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "tableaux.h"
 
-void arrayIntPrint(const int data[], unsigned nbElem){
+void arrayIntPrint(const int data[], unsigned nbElem) {
     assert(data != NULL);
 
     printf("[");
@@ -31,7 +31,7 @@ void arrayIntSort(int data[], unsigned nbElem, bool ascending) {
             }
 }
 
-void arrayIntSortGeneric(int data[], unsigned nbElem, int (*comp)(const void*, const void*)) {
+void arrayIntSortGeneric(int data[], unsigned nbElem, int (*comp)(const void *, const void *)) {
     int c;
     for (int j = 1; j <= nbElem; j++)
         for (int i = 0; i < nbElem - 1; i++)
@@ -42,10 +42,10 @@ void arrayIntSortGeneric(int data[], unsigned nbElem, int (*comp)(const void*, c
             }
 }
 
-int comp_asc (const void* a, const void* b) {
-    return ( *(int*)a - *(int*)b );
+int comp_asc(const void *a, const void *b) {
+    return (*(int *) a - *(int *) b);
 }
 
-int comp_desc (const void* a, const void* b) {
-    return ( *(int*)b - *(int*)a );
+int comp_desc(const void *a, const void *b) {
+    return (*(int *) b - *(int *) a);
 }
