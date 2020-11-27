@@ -9,4 +9,6 @@ typedef struct StatSample {
     int *data;
 } StatSample;
 
+void init_stat(StatSample *s);
+
 #endif //DEV3_STATSAMPLE_H
