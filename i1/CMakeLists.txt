@@ -5,5 +5,5 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -Wall -pedantic -lm")
 
-add_executable(interro1 src/main.c src/primestat.c src/primestat.h)
+add_executable(interro1 src/main.c src/primestat.c src/primestat.h src/statsample.c src/statsample.h)
 target_link_libraries(interro1 PUBLIC td04_lib mathesi)
