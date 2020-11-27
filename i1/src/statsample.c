@@ -43,6 +43,6 @@ static void double_capacity(StatSample *s) {
     s->capacity = newCapacity;
 }
 
-int sample_avg(StatSample s) {
-    return s.sum / s.count;
+double sample_avg(StatSample s) {
+    return s.sum / (double) s.count;
 }

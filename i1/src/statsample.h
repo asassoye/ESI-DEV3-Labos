@@ -16,6 +16,6 @@ void free_stat(StatSample *s);
 
 void update_stat(int n, StatSample *s);
 
-int sample_avg(StatSample s);
+double sample_avg(StatSample s);
 
 #endif //DEV3_STATSAMPLE_H
