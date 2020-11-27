@@ -11,4 +11,6 @@ typedef struct StatSample {
 
 void init_stat(StatSample *s);
 
+void free_stat(StatSample *s);
+
 #endif //DEV3_STATSAMPLE_H
