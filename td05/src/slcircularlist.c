@@ -1,4 +1,5 @@
 #include "slcircularlist.h"
+#include "slcircularlist_utility.h"
 #include <stdlib.h>
 #include <errno.h>
 #include <assert.h>
@@ -92,8 +93,13 @@ struct SLNode *insertSLCL(struct SLCircularList *pSLCL, struct SLNode *pSLN, val
         return pushSLCL(pSLCL, value);
     }
 
-    // TODO
-    return NULL;
+    struct SLNode *previous = previousSLCL(pSLCL, pSLN);
+    struct SLNode *new = newSLN(value);
+
+    setNextSLN(new, pSLN);
+    setNextSLN(previous, new);
+
+    return new;
 }
 
 struct SLNode *popSLCL(struct SLCircularList *pSLCL) {
@@ -113,6 +119,19 @@ struct SLNode *popSLCL(struct SLCircularList *pSLCL) {
 }
 
 struct SLNode *eraseSLCL(struct SLCircularList *pSLCL, struct SLNode *pSLN) {
-    //TODO
-    return NULL;
+    assert(pSLCL != NULL);
+    assert(pSLN != NULL);
+    assert(isElementOfSLCL(pSLCL, pSLN));
+
+    struct SLNode *sentinel = entrySLCL(pSLCL);
+
+    if (pSLN == nextSLN(sentinel)) {
+        return popSLCL(pSLCL);
+    }
+
+    struct SLNode *previous = previousSLCL(pSLCL, pSLN);
+    setNextSLN(previous, nextSLN(pSLN));
+    deleteSLN(&pSLN);
+
+    return getNextSLCN(pSLCL, previous);
 }

@@ -45,5 +45,12 @@ size_t sizeSLCL(const struct SLCircularList *pSLCL);
 struct SLNode *previousSLCL(const struct SLCircularList *pSLCL,
                             const struct SLNode *pSLN);
 
+bool isElementOfSLCL(const struct SLCircularList *pSLCL, const struct SLNode *pSLN);
+
+struct SLNode *getNextSLCN(const struct SLCircularList *pSLCL, const struct SLNode *pSLN);
+
+struct SLNode *getSLCNByPositionSLCN(const struct SLCircularList *pSLCL, size_t position);
+
+void printList(struct SLCircularList *list, bool newline);
 
 #endif //DEV3_SLCIRCULARLIST_UTILITY_H
