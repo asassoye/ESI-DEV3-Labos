@@ -42,3 +42,7 @@ static void double_capacity(StatSample *s) {
     s->data = realloc(s->data, sizeof(int) * newCapacity);
     s->capacity = newCapacity;
 }
+
+int sample_avg(StatSample s) {
+    return s.sum / s.count;
+}
