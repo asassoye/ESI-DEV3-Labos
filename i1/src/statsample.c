@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "statsample.h"
 
 static void double_capacity(StatSample *s);
@@ -40,9 +41,16 @@ static void double_capacity(StatSample *s) {
 
     int newCapacity = s->capacity * 2;
     s->data = realloc(s->data, sizeof(int) * newCapacity);
+
+    if (s->data == NULL) {
+        perror("Erreur lors de l'agrandissement de data!");
+    }
+
     s->capacity = newCapacity;
 }
 
 double sample_avg(StatSample s) {
+    assert(s.count != 0);
+
     return s.sum / (double) s.count;
 }

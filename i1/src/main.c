@@ -16,27 +16,23 @@ int main() {
     int higher = 20000;
     StatSample s;
     init_stat(&s);
-    unsigned taille;
-    unsigned *facteurs = NULL;
+    size_t length, count;
+    unsigned *factors = NULL;
     unsigned *multiplicities = NULL;
-    unsigned calc = 0;
     for (int i = lower; i <= higher; ++i) {
-        taille = primeFactorsB(&facteurs, &multiplicities, i);
-        for (int j = 0; j < taille; ++j) {
-            calc = calc + multiplicities[j];
-        }
+        length = primeFactorsB(&factors, &multiplicities, i);
+        count = countPrimeFactors(multiplicities, length, true);
+        update_stat((int) count, &s);
 
-        update_stat(calc, &s);
-
-        calc = 0;
-        free(facteurs);
-        facteurs = NULL;
+        free(factors);
+        factors = NULL;
         free(multiplicities);
         multiplicities = NULL;
     }
     printf("la moyenne des nombres de facteurs premiers des nombre entre [%d, %d] est %f", lower, higher,
            sample_avg(s));
 
+    free_stat(&s);
     return 0;
 }
 

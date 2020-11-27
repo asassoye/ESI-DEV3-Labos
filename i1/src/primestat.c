@@ -8,33 +8,41 @@ int extr_decomp(int lower, int higher, bool mult) {
     assert(lower <= higher);
 
     unsigned winner = 0;
-    unsigned winner_nb = 0;
+    unsigned winner_count = 0;
 
-    unsigned *facteurs = NULL;
+    unsigned *factors = NULL;
     unsigned *multiplicities = NULL;
-    unsigned taille;
-    unsigned calc = 0;
+    size_t length, count;
     for (int i = lower; i <= higher; ++i) {
-        taille = primeFactorsB(&facteurs, &multiplicities, i);
-        if (mult) {
-            for (int j = 0; j < taille; ++j) {
-                calc = calc + multiplicities[j];
-            }
-        } else {
-            calc = taille;
-        }
+        length = primeFactorsB(&factors, &multiplicities, i);
+        count = countPrimeFactors(multiplicities, length, mult);
 
-        if (calc > winner_nb) {
+        if (count > winner_count) {
             winner = i;
-            winner_nb = calc;
+            winner_count = count;
         }
 
-        calc = 0;
-        free(facteurs);
-        facteurs = NULL;
+        free(factors);
+        factors = NULL;
         free(multiplicities);
         multiplicities = NULL;
     }
 
     return (int) winner;
+}
+
+size_t countPrimeFactors(const unsigned *multiplicities, size_t length, bool mult) {
+    assert(multiplicities != NULL);
+    assert(length > 0);
+
+    unsigned tmp = 0;
+    if (mult) {
+        for (int j = 0; j < length; ++j) {
+            tmp = tmp + multiplicities[j];
+        }
+    } else {
+        tmp = length;
+    }
+
+    return tmp;
 }
