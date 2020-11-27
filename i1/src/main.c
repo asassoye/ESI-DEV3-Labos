@@ -2,10 +2,11 @@
 #include "primestat.h"
 
 int main() {
-    puts("Hello world!");
-
-    printf("gagnant entre %d et %d est %d\n", 7, 10, extr_decomp(7, 10, true));
-    printf("gagnant entre %d et %d est %d\n", 7, 10, extr_decomp(7, 10, false));
+    puts("\t===QUESTION 4===");
+    int n1 = extr_decomp(5000, 20000, true);
+    printf("extr_decomp(5000, 20000, true) = %d\n", n1);
+    int n2 = extr_decomp(5000, 20000, false);
+    printf("extr_decomp(5000, 20000, false) = %d\n", n2);
 
     return 0;
 }
