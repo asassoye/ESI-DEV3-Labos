@@ -42,4 +42,22 @@ int main() {
     cout << "apres descendant:" << endl;
     sort(vector2, false);
     print(vector2);
+
+    cout << endl << "\t===Exercice 7.4===" << endl;
+    times = nvs::random_value(5, 20);
+    vector<int> vector3(times);
+    generate(vector3.begin(), vector3.end(), []() {
+        return nvs::random_value(-5, 5);
+    });
+    cout << "avant:" << endl;
+    print(vector3);
+
+    cout << "croissant:" << endl;
+    std::sort(vector3.begin(), vector3.end(), less<>());
+    print(vector3);
+
+    cout << "décroissant:" << endl;
+    std::sort(vector3.begin(), vector3.end(), greater<>());
+    print(vector3);
+
 }
