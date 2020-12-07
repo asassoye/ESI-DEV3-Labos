@@ -27,6 +27,14 @@ std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times);
  */
 void print(const std::vector<int> &data);
 
+/**
+ * Sort a vector of integers
+ *
+ * @param data vector to sort
+ * @param ascending sort ascending if true
+ */
+void sort(std::vector<int> &data, bool ascending);
+
 template<size_t N>
 std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times) {
     std::array<std::pair<unsigned, double>, N> array{};

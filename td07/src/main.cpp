@@ -4,8 +4,10 @@
  */
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 #include "td07.h"
 #include "../../td06/src/utils.h"
+#include "../resources/random.hpp"
 
 using namespace std;
 
@@ -23,4 +25,21 @@ int main() {
     cout << endl << "\t===Exercice 7.2===" << endl;
     vector<int> vector1 = {1, 2, 3, 4, 5, 6};
     print(vector1);
+
+    cout << endl << "\t===Exercice 7.3===" << endl;
+    int times = nvs::random_value(5, 20);
+    vector<int> vector2(times);
+    generate(vector2.begin(), vector2.end(), []() {
+        return nvs::random_value(-5, 5);
+    });
+    cout << "avant:" << endl;
+    print(vector2);
+
+    cout << "apres ascendant:" << endl;
+    sort(vector2, true);
+    print(vector2);
+
+    cout << "apres descendant:" << endl;
+    sort(vector2, false);
+    print(vector2);
 }

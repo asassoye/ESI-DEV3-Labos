@@ -13,5 +13,16 @@ void print(const std::vector<int> &data) {
         }
         std::cout << data[i];
     }
-    std::cout << "}";
+    std::cout << "}" << std::endl;
+}
+
+void sort(std::vector<int> &data, bool ascending) {
+    int c;
+    for (int j = 1; j <= data.size(); j++)
+        for (int i = 0; i < data.size() - 1; i++)
+            if (ascending ? data[i] > data[i + 1] : data[i] < data[i + 1]) {
+                c = data[i];
+                data[i] = data[i + 1];
+                data[i + 1] = c;
+            }
 }
