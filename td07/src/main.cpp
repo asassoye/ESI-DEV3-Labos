@@ -19,4 +19,8 @@ int main() {
              << " (" << setprecision(2) << array[i].second * 100 << " %)"
              << endl;
     }
+
+    cout << endl << "\t===Exercice 7.2===" << endl;
+    vector<int> vector1 = {1, 2, 3, 4, 5, 6};
+    print(vector1);
 }

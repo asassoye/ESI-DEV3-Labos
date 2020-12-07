@@ -20,6 +20,12 @@
 template<size_t N>
 std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times);
 
+/**
+ * Affiche le contenu d'un vector de int en console
+ *
+ * @param data vecteur
+ */
+void print(const std::vector<int> &data);
 
 template<size_t N>
 std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times) {
