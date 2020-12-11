@@ -1,4 +1,4 @@
-.PHONY: all clean interro1 tree
+.PHONY: all clean interro1 tree docs
 
 all:
 	mkdir -p build/Release; cd build/Release; cmake -DCMAKE_BUILD_TYPE=Release ../../; make
@@ -14,3 +14,6 @@ interro1: clean
 
 tree:
 	tree --dirsfirst -I 'build|resources' .
+
+docs:
+	doxygen ./doxygen

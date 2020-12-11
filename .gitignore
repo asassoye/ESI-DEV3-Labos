@@ -1,6 +1,9 @@
+# BUILDS
 build
 */build
 
-*/docs
+### DOCUMENTATION
+docs
 
+### Jetbrains
 .idea
