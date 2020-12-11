@@ -4,8 +4,8 @@
  */
 #include <iostream>
 #include <exception>
-#include "td07.h"
-#include "../../td06/src/mathesi.h"
+#include "td07.hpp"
+#include "../resources/mathesicpp.hpp"
 
 void print(const std::vector<int> &data) {
     std::cout << "{";
@@ -20,8 +20,8 @@ void print(const std::vector<int> &data) {
 
 void sort(std::vector<int> &data, bool ascending) {
     int c;
-    for (int j = 1; j <= data.size(); j++)
-        for (int i = 0; i < data.size() - 1; i++)
+    for (size_t j = 1; j <= data.size(); j++)
+        for (size_t i = 0; i < data.size() - 1; i++)
             if (ascending ? data[i] > data[i + 1] : data[i] < data[i + 1]) {
                 c = data[i];
                 data[i] = data[i + 1];
@@ -34,7 +34,7 @@ unsigned primeFactor(std::map<unsigned, unsigned> &result, unsigned value) {
         result.clear();
     }
 
-    if (isPrime(value)) {
+    if (dev3::math::isPrime(value)) {
         result.insert(std::pair<unsigned, unsigned>(value, 1));
         return 1;
     }

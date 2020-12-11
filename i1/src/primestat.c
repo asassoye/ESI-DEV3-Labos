@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "primestat.h"
-#include "../../td04/src/td04.h"
+#include "../resources/td04.h"
 
 int extr_decomp(int lower, int higher, bool mult) {
     assert(lower <= higher);

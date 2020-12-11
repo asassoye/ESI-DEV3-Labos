@@ -5,11 +5,11 @@
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
-#include "td07.h"
-#include "../../td06/src/utils.h"
-#include "../resources/random.hpp"
+#include "td07.hpp"
+#include "../resources/utilscpp.hpp"
 
 using namespace std;
+using namespace dev3;
 
 void exe1();
 
@@ -22,11 +22,11 @@ void exe4();
 void exe5();
 
 int main() {
-    exercice("Exercice 7.1", exe1);
-    exercice("Exercice 7.2", exe2);
-    exercice("Exercice 7.3", exe3);
-    exercice("Exercice 7.4", exe4);
-    exercice("Exercice 7.5", exe5);
+    utils::exercise("Exercice 7.1", exe1);
+    utils::exercise("Exercice 7.2", exe2);
+    utils::exercise("Exercice 7.3", exe3);
+    utils::exercise("Exercice 7.4", exe4);
+    utils::exercise("Exercice 7.5", exe5);
 }
 
 void exe1() {

@@ -2,8 +2,8 @@
  * @file td07.h
  * @author Andrew SASSOYE
  */
-#ifndef DEV3_TD07_H
-#define DEV3_TD07_H
+#ifndef DEV3_TD07_HPP
+#define DEV3_TD07_HPP
 
 #include <cstddef>
 #include <array>
@@ -60,4 +60,4 @@ std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times) {
     return array;
 }
 
-#endif //DEV3_TD07_H
+#endif //DEV3_TD07_HPP

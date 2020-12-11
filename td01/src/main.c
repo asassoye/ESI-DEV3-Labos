@@ -4,7 +4,7 @@
  */
 #include <stdio.h>
 #include <limits.h>
-#include "mathesi.h"
+#include "../resources/mathesi.h"
 
 int main() {
     printPrimeTable(200, 350);

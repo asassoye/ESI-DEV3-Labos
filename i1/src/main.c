@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "primestat.h"
 #include "statsample.h"
-#include "../../td04/src/td04.h"
+#include "../resources/td04.h"
 
 int main() {
     puts("\t===QUESTION 4===");

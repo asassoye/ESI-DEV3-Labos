@@ -6,7 +6,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include "td04.h"
-#include "../../td01/src/mathesi.h"
+#include "../resources/mathesi.h"
 
 unsigned *primeFactorsA(unsigned *count, unsigned number) {
     assert(*count == 0);

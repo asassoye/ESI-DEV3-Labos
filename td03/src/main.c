@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <getopt.h>
-#include "../../td01/src/mathesi.h"
+#include "../resources/mathesi.h"
 #include "str.h"
 
 #define OPTSTR "v:h"

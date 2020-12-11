@@ -1,11 +1,18 @@
-#ifndef DEV3_UTILS_H
-#define DEV3_UTILS_H
+#ifndef DEV3_UTILSCPP_HPP
+#define DEV3_UTILSCPP_HPP
 
 #include <vector>
 #include <ostream>
 #include <functional>
 
-void exercice(const std::string &name, const std::function<void()> &exe);
+namespace dev3::utils {
+    const std::string BOX = "\033[1;7m";
+    const std::string BOLD = "\033[3;4m";
+    const std::string ITALIC = "\033[1m";
+    const std::string RESET = "\033[0m";
+
+    void exercise(const std::string &name, const std::function<void()> &exe);
+}
 
 
 /**
@@ -29,4 +36,4 @@ std::ostream &operator<<(std::ostream &out, const Container<T, OtherParams...> &
     return out;
 }
 
-#endif //DEV3_UTILS_H
+#endif //DEV3_UTILSCPP_HPP
