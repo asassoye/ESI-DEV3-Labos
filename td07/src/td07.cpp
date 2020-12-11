@@ -3,7 +3,9 @@
  * @author Andrew SASSOYE
  */
 #include <iostream>
+#include <exception>
 #include "td07.h"
+#include "../../td06/src/mathesi.h"
 
 void print(const std::vector<int> &data) {
     std::cout << "{";
@@ -25,4 +27,57 @@ void sort(std::vector<int> &data, bool ascending) {
                 data[i] = data[i + 1];
                 data[i + 1] = c;
             }
+}
+
+unsigned primeFactor(std::map<unsigned, unsigned> &result, unsigned value) {
+    if (!result.empty()) {
+        result.clear();
+    }
+
+    if (isPrime(value)) {
+        result.insert(std::pair<unsigned, unsigned>(value, 1));
+        return 1;
+    }
+
+    unsigned count = 0;
+    unsigned prime = 2;
+    unsigned power = 0;
+    while (value > 1) {
+        while (value % prime == 0) {
+            value /= prime;
+            ++power;
+        }
+        if (power > 0) {
+            result.insert(std::pair<unsigned, unsigned>(prime, power));
+            power = 0;
+            ++count;
+        }
+
+        if (prime == 2) {
+            prime++;
+        } else {
+            prime += 2;
+        }
+    }
+
+    return count;
+}
+
+void printPrimeFactor(unsigned value, std::map<unsigned, unsigned> &decomposition) {
+    std::cout << value << " = ";
+    if (value <= 1) {
+        std::cout << value;
+        return;
+    }
+
+    for (auto i = decomposition.begin(); i != decomposition.end(); ++i) {
+        if (i->second != 0) {
+            if (i != decomposition.begin()) {
+                std::cout << " * ";
+            }
+            std::cout << i->first << (i->second != 1 ? "^" : "") << (i->second != 1 ? std::to_string(i->second) : "");
+        }
+    }
+
+    std::cout << std::endl;
 }

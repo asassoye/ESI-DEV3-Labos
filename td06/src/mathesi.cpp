@@ -9,7 +9,11 @@ bool isPrime(unsigned number) {
         return false;
     }
 
-    for (int i = 2; i <= max; ++i) {
+    if (number != 2 && number % 2 == 0) {
+        return false;
+    }
+
+    for (int i = 3; i <= max; ++(++i)) {
         if (number % i == 0) {
             return false;
         }

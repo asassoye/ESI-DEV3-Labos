@@ -7,6 +7,7 @@
 
 #include <cstddef>
 #include <array>
+#include <map>
 
 #include "../resources/random.hpp"
 
@@ -35,17 +36,24 @@ void print(const std::vector<int> &data);
  */
 void sort(std::vector<int> &data, bool ascending);
 
+unsigned primeFactor(std::map<unsigned, unsigned> &result, unsigned value);
+
+void printPrimeFactor(unsigned value, std::map<unsigned, unsigned> &decomposition);
+
 template<size_t N>
 std::array<std::pair<unsigned, double>, N> test_nvs_random(unsigned times) {
     std::array<std::pair<unsigned, double>, N> array{};
+    size_t arraySize = array.size();
     size_t randomValue;
 
+    nvs::randomize();
+
     for (size_t i = 0; i < times; ++i) {
-        randomValue = nvs::random_value(0, array.size());
+        randomValue = nvs::random_value(0, arraySize);
         (array[randomValue].first)++;
     }
 
-    for (size_t i = 0; i < array.size(); ++i) {
+    for (size_t i = 0; i < arraySize; ++i) {
         array[i].second = static_cast<double>(array[i].first) / times;
     }
 

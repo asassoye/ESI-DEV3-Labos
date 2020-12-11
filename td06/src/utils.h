@@ -3,6 +3,10 @@
 
 #include <vector>
 #include <ostream>
+#include <functional>
+
+void exercice(const std::string &name, const std::function<void()> &exe);
+
 
 /**
  * @author Romain ABSIL

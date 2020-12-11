@@ -11,9 +11,26 @@
 
 using namespace std;
 
+void exe1();
+
+void exe2();
+
+void exe3();
+
+void exe4();
+
+void exe5();
+
 int main() {
-    cout << "\t===Exercice 7.1===" << endl;
-    auto array = test_nvs_random<20>(10000000);
+    exercice("Exercice 7.1", exe1);
+    exercice("Exercice 7.2", exe2);
+    exercice("Exercice 7.3", exe3);
+    exercice("Exercice 7.4", exe4);
+    exercice("Exercice 7.5", exe5);
+}
+
+void exe1() {
+    auto array = test_nvs_random<10>(40000000);
 
     for (size_t i = 0; i < array.size(); ++i) {
         cout << "nombre de " << setw(2) << i
@@ -21,12 +38,14 @@ int main() {
              << " (" << setprecision(2) << array[i].second * 100 << " %)"
              << endl;
     }
+}
 
-    cout << endl << "\t===Exercice 7.2===" << endl;
+void exe2() {
     vector<int> vector1 = {1, 2, 3, 4, 5, 6};
     print(vector1);
+}
 
-    cout << endl << "\t===Exercice 7.3===" << endl;
+void exe3() {
     int times = nvs::random_value(5, 20);
     vector<int> vector2(times);
     generate(vector2.begin(), vector2.end(), []() {
@@ -42,9 +61,10 @@ int main() {
     cout << "apres descendant:" << endl;
     sort(vector2, false);
     print(vector2);
+}
 
-    cout << endl << "\t===Exercice 7.4===" << endl;
-    times = nvs::random_value(5, 20);
+void exe4() {
+    int times = nvs::random_value(5, 20);
     vector<int> vector3(times);
     generate(vector3.begin(), vector3.end(), []() {
         return nvs::random_value(-5, 5);
@@ -59,5 +79,14 @@ int main() {
     cout << "décroissant:" << endl;
     std::sort(vector3.begin(), vector3.end(), greater<>());
     print(vector3);
+}
 
+void exe5() {
+    std::map<unsigned, unsigned> decomposition{};
+    unsigned value = 1552521050;
+
+    for (unsigned i = 0; i < 10; ++i) {
+        primeFactor(decomposition, ++value);
+        printPrimeFactor(value, decomposition);
+    }
 }

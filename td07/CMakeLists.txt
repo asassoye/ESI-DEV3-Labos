@@ -15,4 +15,4 @@ add_executable(
         src/main.cpp
 )
 
-target_link_libraries(td07 PUBLIC td07_lib)
+target_link_libraries(td07 PUBLIC utilscpp td07_lib mathesicpp)
