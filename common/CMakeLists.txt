@@ -26,8 +26,8 @@ set(MCPP_TESTS
 
 add_library(mathesicpp ${MCPP_HEADERS} ${MCPP_SOURCES})
 
-add_executable(mathesicpptest ${MCPP_TESTS} ${MCPP_SOURCES})
-target_link_libraries(mathesicpptest Catch2::Catch2)
+add_executable(mathesicpptest ${MCPP_TESTS})
+target_link_libraries(mathesicpptest Catch2::Catch2 mathesicpp)
 add_test(NAME MathESITest COMMAND mathesicpptest)
 
 #########################################################################################
