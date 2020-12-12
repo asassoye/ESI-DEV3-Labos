@@ -39,6 +39,7 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/td04" "${PROJECT_SOURCE_DIR}/td04/build/
 add_subdirectory("${PROJECT_SOURCE_DIR}/td05" "${PROJECT_SOURCE_DIR}/td05/build/${CMAKE_BUILD_TYPE}")
 add_subdirectory("${PROJECT_SOURCE_DIR}/td06" "${PROJECT_SOURCE_DIR}/td06/build/${CMAKE_BUILD_TYPE}")
 add_subdirectory("${PROJECT_SOURCE_DIR}/td07" "${PROJECT_SOURCE_DIR}/td07/build/${CMAKE_BUILD_TYPE}")
+add_subdirectory("${PROJECT_SOURCE_DIR}/td08" "${PROJECT_SOURCE_DIR}/td08/build/${CMAKE_BUILD_TYPE}")
 
 #########################################################################################
 # INTERROGATIONS

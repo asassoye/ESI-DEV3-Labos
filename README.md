@@ -81,6 +81,10 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   │   └── td07.hpp
 │   ├── CMakeLists.txt
 │   └── td07_cpp.pdf
+├── td08
+│   ├── src
+│   │   └── main.cpp
+│   └── CMakeLists.txt
 ├── CMakeLists.txt
 ├── doxygen
 ├── LICENSE
@@ -125,7 +129,7 @@ $ ./{td}/build/{env}/{td}
 avec:
 
 - env ∈ {`Release`,`Debug`}:
-- td ∈ {`td01`, `td02`,`td03`,`td04`,`td01`,`td05`,`td06`,`td07`}
+- td ∈ {`td01`, `td02`,`td03`,`td04`,`td01`,`td05`,`td06`,`td07`, `td08`}
 
 ### Executer le main d'une interrogation
 
