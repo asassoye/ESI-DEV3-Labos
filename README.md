@@ -11,6 +11,9 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   │   ├── mathesi.hpp
 │   │   ├── utilscpp.cpp
 │   │   └── utilscpp.hpp
+│   ├── test
+│   │   ├── mathesicpptest.cpp
+│   │   └── tests-main.cpp
 │   └── CMakeLists.txt
 ├── i1
 │   ├── src
@@ -25,7 +28,6 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   ├── src
 │   │   └── main.c
 │   ├── CMakeLists.txt
-│   ├── doxygen
 │   └── td01_c.pdf
 ├── td02
 │   ├── src
@@ -80,6 +82,7 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   ├── CMakeLists.txt
 │   └── td07_cpp.pdf
 ├── CMakeLists.txt
+├── doxygen
 ├── LICENSE
 ├── Makefile
 └── README.md
@@ -97,6 +100,18 @@ Pour compiler en debug:
 
 ```bash
 $ make debug
+```
+
+Pour compiler les docs:
+
+```bash
+$ make docs
+```
+
+Pour executer les tests:
+
+```bash
+$ make test
 ```
 
 ### Executer un TD
