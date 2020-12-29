@@ -219,6 +219,10 @@ namespace dev3 {
         return product(lhs, rhs);
     }
 
+    constexpr bool operator<(Sign lhs, Sign rhs) {
+        return lhs == Sign::MINUS && rhs != Sign::MINUS;
+    }
+
     inline std::string to_string(Sign sign) {
         switch (sign) {
             case Sign::MINUS:

@@ -1,5 +1,6 @@
 #include <cmath>
 #include <stdexcept>
+#include <exception>
 #include "mathesi.hpp"
 
 namespace dev3::math {
@@ -54,4 +55,3 @@ namespace dev3::math {
         return result;
     }
 }
-
