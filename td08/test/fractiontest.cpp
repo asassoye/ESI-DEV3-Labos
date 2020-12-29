@@ -1,8 +1,9 @@
-#include <cstdio>
+#include <cmath>
 #include "catch2/catch.hpp"
 #include "../src/sign.hpp"
 #include "../src/fraction.hpp"
 #include "../resources/mathesi.hpp"
+#include "../resources/data_fraction.h"
 
 using namespace dev3;
 
@@ -38,6 +39,49 @@ TEST_CASE("Fraction::Fraction(Sign sign, unsigned numerator, unsigned denominato
             REQUIRE(fraction.numerator() == dev3::Fraction::reduce(numerator, denominator).first);
             REQUIRE(fraction.denominator() == dev3::Fraction::reduce(numerator, denominator).second);
             REQUIRE(fraction.sign() == sign);
+        }
+    }
+}
+
+auto fraction = [](Sign sign, int numerator, int denominator) -> Fraction {
+    return Fraction{
+            std::abs(numerator),
+            std::abs(denominator)
+    };
+};
+
+TEST_CASE("constructor with nvs::data_signed()") {
+    auto v = nvs::data_signed(43);
+    for (auto tuple : v) {
+        SECTION("(" + std::to_string(tuple.first) + ", " + std::to_string(tuple.second) + ")") {
+            if (tuple.second == 0) {
+                CHECK_THROWS(Fraction{tuple.first, tuple.second});
+            } else {
+                Fraction f{tuple.first, tuple.second};
+                auto reduced = dev3::Fraction::reduce(std::abs(tuple.first), std::abs(tuple.second));
+                REQUIRE(f.sign() == sign(tuple.first * tuple.second));
+                REQUIRE(f.numerator() == reduced.first);
+                REQUIRE(f.denominator() == reduced.second);
+            }
+        }
+    }
+}
+
+TEST_CASE("constructor with nvs::data_unsigned()") {
+    auto v = nvs::data_unsigned(43);
+    for (auto tuple : v) {
+        SECTION("(" + std::to_string(std::get<0>(tuple)) + ", " + std::to_string(std::get<1>(tuple)) + ", " + std::to_string(std::get<2>(tuple)) + ")") {
+            if (std::get<2>(tuple) == 0) {
+                CHECK_THROWS(Fraction{dev3::sign(std::get<0>(tuple)), std::get<1>(tuple), std::get<2>(tuple)});
+            } else if(dev3::sign(std::get<0>(tuple)) == Sign::ZERO && std::get<1>(tuple) != 0) {
+                CHECK_THROWS(Fraction{dev3::sign(std::get<0>(tuple)), std::get<1>(tuple), std::get<2>(tuple)});
+            } else {
+                Fraction f{dev3::sign(std::get<0>(tuple)), std::get<1>(tuple), std::get<2>(tuple)};
+                auto reduced = dev3::Fraction::reduce(std::get<1>(tuple), std::get<2>(tuple));
+                REQUIRE(f.sign() == dev3::sign(std::get<0>(tuple)));
+                REQUIRE(f.numerator() == reduced.first);
+                REQUIRE(f.denominator() == reduced.second);
+            }
         }
     }
 }

@@ -37,10 +37,10 @@ add_executable(signtest ${S_TESTS})
 target_link_libraries(signtest Catch2::Catch2 fraction)
 add_test(NAME SignTest COMMAND signtest)
 
-add_executable(fractiontest ${F_TESTS} ${F_SOURCES})
+add_executable(fractiontest ${F_TESTS} ${F_SOURCES} resources/data_fraction.cpp)
 target_link_libraries(fractiontest Catch2::Catch2 fraction mathesicpp)
 add_test(NAME FractionTest COMMAND fractiontest)
 
-add_executable(fractionConstexprTest ${FCE_TESTS})
+add_executable(fractionConstexprTest ${FCE_TESTS} resources/data_fraction.cpp)
 target_link_libraries(fractionConstexprTest Catch2::Catch2 fraction mathesicpp)
 add_test(NAME FractionConstExprTest COMMAND fractionConstexprTest)

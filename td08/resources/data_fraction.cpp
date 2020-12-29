@@ -4,7 +4,7 @@
 #include <cmath>
 
 #include "data_fraction.h"
-#include "random/random.hpp"
+#include "random.hpp"
 
 namespace nvs {
 
