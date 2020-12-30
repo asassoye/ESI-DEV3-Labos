@@ -8,8 +8,8 @@
 #ifndef DRAW_H
 #define DRAW_H
 
-#include "item.h"
-#include "parameter.h"
+#include "item.hpp"
+#include "parameter.hpp"
 
 #include <set>
 #include <vector>
@@ -17,7 +17,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include "random/random.hpp"
+#include "../resources/random.hpp"
 
 /*!
  * \brief Espace de nom du projet Lotto de Nicolas Vansteenkiste.
@@ -80,6 +80,6 @@ std::set<unsigned> Draw::draw(const Parameter &parameter) const {
       parameter.length()};
 }
 
-}   // namespace nvs::lotto
+}
 
 #endif // DRAW_H
