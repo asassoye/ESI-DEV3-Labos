@@ -1,6 +1,14 @@
 # [DEV3] Laboratoires
+
 Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bruxelles
+
+![GitHub top language](https://img.shields.io/github/languages/top/asassoye/ESI-DEV3-Labos?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/asassoye/ESI-DEV3-Labos?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/asassoye/ESI-DEV3-Labos?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/asassoye/ESI-DEV3-Labos/Build/master?style=for-the-badge)
+
 ## Structure des fichiers
+
 ```
 .
 ├── common
@@ -83,6 +91,21 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   └── td07_cpp.pdf
 ├── td08
 │   ├── src
+│   │   ├── fraction_constexpr.hpp
+│   │   ├── fraction.cpp
+│   │   ├── fraction.hpp
+│   │   ├── main.cpp
+│   │   ├── sign.cpp
+│   │   └── sign.hpp
+│   ├── test
+│   │   ├── fraction_constexprTest.cpp
+│   │   ├── fractiontest.cpp
+│   │   └── signtest.cpp
+│   ├── CMakeLists.txt
+│   ├── td08_cpp.pdf
+│   └── td08_cpp_withAppendix.pdf
+├── td09
+│   ├── src
 │   │   └── main.cpp
 │   └── CMakeLists.txt
 ├── CMakeLists.txt
@@ -129,7 +152,7 @@ $ ./{td}/build/{env}/{td}
 avec:
 
 - env ∈ {`Release`,`Debug`}:
-- td ∈ {`td01`, `td02`,`td03`,`td04`,`td01`,`td05`,`td06`,`td07`, `td08`}
+- td ∈ {`td01`, `td02`,`td03`,`td04`,`td01`,`td05`,`td06`,`td07`, `td08`, `td09`}
 
 ### Executer le main d'une interrogation
 

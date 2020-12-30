@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.17.3)
 project(dev3 C CXX)
 
 if (NOT CMAKE_BUILD_TYPE)
@@ -7,12 +7,28 @@ endif ()
 
 set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -lm")
+
+if (NOT WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic")
+endif ()
+
+if (NOT WIN32)
+    find_library(MATH_LIBRARIES
+            NAMES m
+            PATHS /usr/lib /usr/local/lib
+            )
+    if (NOT MATH_LIBRARIES)
+        message("Cannot find libm")
+    endif ()
+else ()
+    set(MATH_LIBRARIES "")
+endif ()
 
 #########################################################################################
 # TESTING
 #########################################################################################
-find_package(Catch2 REQUIRED)
+find_package(Catch2 QUIET)
 if (NOT Catch2_FOUND)
     message("Catch not found, downloading from git.")
     Include(FetchContent)
@@ -40,6 +56,7 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/td05" "${PROJECT_SOURCE_DIR}/td05/build/
 add_subdirectory("${PROJECT_SOURCE_DIR}/td06" "${PROJECT_SOURCE_DIR}/td06/build/${CMAKE_BUILD_TYPE}")
 add_subdirectory("${PROJECT_SOURCE_DIR}/td07" "${PROJECT_SOURCE_DIR}/td07/build/${CMAKE_BUILD_TYPE}")
 add_subdirectory("${PROJECT_SOURCE_DIR}/td08" "${PROJECT_SOURCE_DIR}/td08/build/${CMAKE_BUILD_TYPE}")
+add_subdirectory("${PROJECT_SOURCE_DIR}/td09" "${PROJECT_SOURCE_DIR}/td09/build/${CMAKE_BUILD_TYPE}")
 
 #########################################################################################
 # INTERROGATIONS

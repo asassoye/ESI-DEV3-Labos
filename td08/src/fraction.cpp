@@ -1,6 +1,8 @@
 /**
  * @file fraction.cpp
- * @author Andrew SASSOYE
+ *
+ * @author Andrew SASSOYE <andrew@sasoye.be>
+ * @copyright Copyright © 2020 Andrew SASSOYE. This project is released under the MIT License.
  */
 #include <cmath>
 #include <numeric>
