@@ -606,7 +606,7 @@ namespace dev3 {
             return lhs.sign() < rhs.sign();
         }
 
-        return lhs.numerator() * rhs.denominator() < rhs.numerator() * lhs.numerator();
+        return lhs.numerator() * rhs.denominator() < rhs.numerator() * lhs.denominator();
     }
 
     constexpr bool operator<=(const Fraction &lhs,

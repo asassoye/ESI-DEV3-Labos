@@ -220,7 +220,7 @@ namespace dev3 {
     }
 
     constexpr bool operator<(Sign lhs, Sign rhs) {
-        return lhs == Sign::MINUS && rhs != Sign::MINUS;
+        return (lhs == Sign::MINUS && rhs != Sign::MINUS) || (lhs == Sign::ZERO && rhs == Sign::PLUS);
     }
 
     inline std::string to_string(Sign sign) {
