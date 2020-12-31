@@ -22,12 +22,12 @@ namespace dev3 {
             sign_{sign},
             numerator_{reduce(numerator, denominator).first},
             denominator_{reduce(numerator, denominator).second} {
-        if (denominator == 0) {
-            throw std::invalid_argument("denominator est nul");
-        }
-        if (sign == Sign::ZERO && numerator != 0) {
-            throw std::invalid_argument("sign est Sign::ZERO alors que numerator n'est pas nul.");
-        }
+      if (denominator == 0) {
+        throw std::invalid_argument("denominator est nul");
+      }
+      if ((sign == Sign::ZERO && numerator != 0) || (numerator == 0 && sign != Sign::ZERO)) {
+        throw std::invalid_argument("sign est Sign::ZERO alors que numerator n'est pas nul.");
+      }
     }
 
     std::pair<unsigned, unsigned> Fraction::reduce(unsigned int numerator, unsigned int denominator) {
@@ -57,11 +57,11 @@ namespace dev3 {
 
     bool operator<(const Fraction &lhs,
                    const Fraction &rhs) {
-        if (lhs.sign() != rhs.sign()) {
-            return lhs.sign() < rhs.sign();
-        }
+      if (lhs.sign() != rhs.sign()) {
+        return lhs.sign() < rhs.sign();
+      }
 
-        return lhs.numerator() * rhs.denominator() < rhs.numerator() * lhs.numerator();
+      return lhs.numerator() * rhs.denominator() < rhs.numerator() * lhs.denominator();
     }
 
     Fraction operator+(const Fraction &lhs,
