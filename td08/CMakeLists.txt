@@ -30,7 +30,7 @@ set(FCE_TESTS resources/tests-main.cpp test/fraction_constexprTest.cpp)
 
 add_library(fraction ${S_HEADERS} ${S_SOURCES})
 
-add_executable(td08 src/main.cpp)
+add_executable(td08 src/main.cpp resources/data_fraction.cpp)
 target_link_libraries(td08 PUBLIC fraction utilscpp)
 
 add_executable(signtest ${S_TESTS})

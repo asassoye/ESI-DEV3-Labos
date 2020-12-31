@@ -11,6 +11,7 @@
 #include <string>
 #include <ostream>
 #include <tuple>
+#include <numeric>
 
 // TODO include manquants
 
@@ -71,74 +72,74 @@ namespace dev3 {
 
     public:
 
-        /*!
-         * \brief Constructeur avec déduction du signe.
-         *
-         * Les arguments du constructeur sont ici dénommés numérateur et
-         * dénominateur _bruts_.
-         *
-         * Les attributs \ref numerator_ et \ref denominator_
-         * sont obtenus après [réduction]
-         * (https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur_de_nombres_entiers#Simplification_de_fractions)
-         * de la fraction brute. L'attribut \ref sign_ est également
-         * calculé.
-         *
-         * Si le dénominateur est nul, une exception
-         * std::invalid_argument est levée.
-         *
-         * Par convention, la fraction correspondant à la valeur zéro,
-         * c'est-à-dire de numérateur nul et dénominateur non nul, est
-         * représentée avec :
-         *   + \ref sign_ égal à Sign::ZERO ;
-         *   + \ref numerator_ égal à 0 ;
-         *   + \ref denominator_ égal à 1.
-         *
-         * \param numerator numérateur brut.
-         * \param denominator dénominateur brut.
-         *
-         * \throw std::invalid_argument si `denominator` est nul.
-         */
-        inline constexpr Fraction(int numerator = 0, int denominator = 1);
+      /*!
+       * \brief Constructeur avec déduction du signe.
+       *
+       * Les arguments du constructeur sont ici dénommés numérateur et
+       * dénominateur _bruts_.
+       *
+       * Les attributs \ref numerator_ et \ref denominator_
+       * sont obtenus après [réduction]
+       * (https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur_de_nombres_entiers#Simplification_de_fractions)
+       * de la fraction brute. L'attribut \ref sign_ est également
+       * calculé.
+       *
+       * Si le dénominateur est nul, une exception
+       * std::invalid_argument est levée.
+       *
+       * Par convention, la fraction correspondant à la valeur zéro,
+       * c'est-à-dire de numérateur nul et dénominateur non nul, est
+       * représentée avec :
+       *   + \ref sign_ égal à Sign::ZERO ;
+       *   + \ref numerator_ égal à 0 ;
+       *   + \ref denominator_ égal à 1.
+       *
+       * \param numerator numérateur brut.
+       * \param denominator dénominateur brut.
+       *
+       * \throw std::invalid_argument si `denominator` est nul.
+       */
+      inline constexpr Fraction(int numerator = 0, int denominator = 1) noexcept(false);
 
-        /*!
-         * \brief Constructeur avec signe explicite.
-         *
-         * Les arguments de construction sont le signe et les valeurs
-         * absolues des numérateur et dénominateur _bruts_.
-         *
-         * Les attributs \ref numerator_ et \ref denominator_
-         * sont obtenus après [réduction]
-         * (https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur_de_nombres_entiers#Simplification_de_fractions)
-         * de la fraction brute.
-         *
-         * Si le dénominateur est nul, une exception
-         * std::invalid_argument est levée.
-         *
-         * Une exception std::invalid_argument est également levée si
-         * le signe fourni est Sign::ZERO alors que la fraction,
-         * plus précisément le numérateur, n'est pas nulle. Par
-         * contre, si le numérateur fourni est nul, l'attribut
-         * \ref sign_ est mis à Sign::ZERO, quelle que soit la valeur
-         * du paramètre `sign`.
-         *
-         * Par convention, la fraction correspondant à la valeur zéro,
-         * c'est-à-dire de numérateur nul et dénominateur non nul, est
-         * représentée avec :
-         *   + \ref sign_ égal à Sign::ZERO ;
-         *   + \ref numerator_ égal à 0 ;
-         *   + \ref denominator_ égal à 1.
-         *
-         * \param sign signe de la fraction à construire.
-         * \param numerator valeur absolue du numérateur brut.
-         * \param denominator valeur absolue du dénominateur brut.
-         *
-         * \throw std::invalid_argument si
-         *      + `denominator` est nul ;
-         *      + `sign` est Sign::ZERO alors que `numerator` n'est pas
-         *        nul.
-         */
-        inline constexpr Fraction(Sign sign, unsigned numerator = 0,
-                                  unsigned denominator = 1);
+      /*!
+       * \brief Constructeur avec signe explicite.
+       *
+       * Les arguments de construction sont le signe et les valeurs
+       * absolues des numérateur et dénominateur _bruts_.
+       *
+       * Les attributs \ref numerator_ et \ref denominator_
+       * sont obtenus après [réduction]
+       * (https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur_de_nombres_entiers#Simplification_de_fractions)
+       * de la fraction brute.
+       *
+       * Si le dénominateur est nul, une exception
+       * std::invalid_argument est levée.
+       *
+       * Une exception std::invalid_argument est également levée si
+       * le signe fourni est Sign::ZERO alors que la fraction,
+       * plus précisément le numérateur, n'est pas nulle. Par
+       * contre, si le numérateur fourni est nul, l'attribut
+       * \ref sign_ est mis à Sign::ZERO, quelle que soit la valeur
+       * du paramètre `sign`.
+       *
+       * Par convention, la fraction correspondant à la valeur zéro,
+       * c'est-à-dire de numérateur nul et dénominateur non nul, est
+       * représentée avec :
+       *   + \ref sign_ égal à Sign::ZERO ;
+       *   + \ref numerator_ égal à 0 ;
+       *   + \ref denominator_ égal à 1.
+       *
+       * \param sign signe de la fraction à construire.
+       * \param numerator valeur absolue du numérateur brut.
+       * \param denominator valeur absolue du dénominateur brut.
+       *
+       * \throw std::invalid_argument si
+       *      + `denominator` est nul ;
+       *      + `sign` est Sign::ZERO alors que `numerator` n'est pas
+       *        nul.
+       */
+      inline constexpr Fraction(Sign sign, unsigned numerator = 0,
+                                unsigned denominator = 1) noexcept(false);
 
         /*!
          * \brief Accesseur en lecture du signe.
@@ -665,24 +666,24 @@ namespace dev3 {
 
 // implémentation de méthodes inline
 
-    constexpr Fraction::Fraction(int numerator, int denominator) :
-            Fraction(
-                    dev3::sign(numerator * denominator),
-                    std::abs(numerator),
-                    std::abs(denominator)
-            ) {}
+constexpr Fraction::Fraction(int numerator, int denominator) noexcept(false):
+    Fraction(
+        dev3::sign(numerator * denominator),
+        std::abs(numerator),
+        std::abs(denominator)
+    ) {}
 
     constexpr Fraction::Fraction(Sign sign, unsigned numerator,
-                                 unsigned denominator) :
-            sign_{sign},
-            numerator_{reduce(numerator, denominator).first},
-            denominator_{reduce(numerator, denominator).second} {
-        if (denominator == 0) {
-            throw std::invalid_argument("denominator est nul");
-        }
-        if (sign == Sign::ZERO && numerator != 0) {
-            throw std::invalid_argument("sign est Sign::ZERO alors que numerator n'est pas nul.");
-        }
+                                 unsigned denominator) noexcept(false):
+        sign_{sign},
+        numerator_{reduce(numerator, denominator).first},
+        denominator_{reduce(numerator, denominator).second} {
+      if (denominator == 0) {
+        throw std::invalid_argument("denominator est nul");
+      }
+      if ((sign == Sign::ZERO && numerator != 0) || (numerator == 0 && sign != Sign::ZERO)) {
+        throw std::invalid_argument("sign est Sign::ZERO alors que numerator n'est pas nul.");
+      }
     }
 
     constexpr Sign Fraction::sign() const {

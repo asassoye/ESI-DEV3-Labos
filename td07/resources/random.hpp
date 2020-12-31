@@ -44,17 +44,17 @@ namespace nvs {
  *
  * \return un générateur de nombres uniformément aléatoires.
  */
-    inline auto &urng() {
+inline auto &urng() {
 #ifdef _WIN32
-        static std::mt19937 u {};
-        // https://stackoverflow.com/a/32731387
-        // dans le lien précédent : Linux   <-> gcc
-        //                       et Windows <-> msvc
+  static std::mt19937 u {};
+  // https://stackoverflow.com/a/32731387
+  // dans le lien précédent : Linux   <-> gcc
+  //                       et Windows <-> msvc
 #else
-        static std::default_random_engine u{};
+  static std::default_random_engine u{};
 #endif
-        return u;
-    }
+  return u;
+}
 
 /*!
  * \brief Un peu de bruit.
@@ -66,15 +66,15 @@ namespace nvs {
  * (http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)),
  * par Walter E. Brown.
  */
-    inline void randomize() {
+inline void randomize() {
 #ifdef _WIN32
-        urng().seed(std::time(nullptr));
-        // https://stackoverflow.com/a/18908041
+  urng().seed(std::time(nullptr));
+  // https://stackoverflow.com/a/18908041
 #else
-        static std::random_device rd{};
-        urng().seed(rd());
+  static std::random_device rd{};
+  urng().seed(rd());
 #endif
-    }
+}
 
 /*!
  * \brief Générateur de flottants aléatoires.
@@ -106,13 +106,13 @@ namespace nvs {
  * \return un flottant dans l'intervalle semi-ouvert à droite
  *         [`min`, `max`[ (ou [`max`, `min`[ si `max` < `min`).
  */
-    inline double random_value(double max = 1., double min = 0.) {
-        static std::uniform_real_distribution<double> d{};
+inline double random_value(double max = 1., double min = 0.) {
+  static std::uniform_real_distribution<double> d{};
 
-        if (max < min) std::swap(min, max);
+  if (max < min) std::swap(min, max);
 
-        return d(urng(), decltype(d)::param_type{min, max});
-    }
+  return d(urng(), decltype(d)::param_type{min, max});
+}
 
 // fonctions template
 
@@ -139,15 +139,15 @@ namespace nvs {
  *
  * \return un entier entre `min` et `max`.
  */
-    template<typename T = int>
-    inline T random_value(T min = std::numeric_limits<T>::min(),
-                          T max = std::numeric_limits<T>::max()) {
-        static std::uniform_int_distribution<T> d{};
+template<typename T = int>
+inline T random_value(T min = std::numeric_limits<T>::min(),
+                      T max = std::numeric_limits<T>::max()) {
+  static std::uniform_int_distribution<T> d{};
 
-        if (max < min) std::swap(min, max);
+  if (max < min) std::swap(min, max);
 
-        return d(urng(), typename decltype(d)::param_type{min, max});
-    }
+  return d(urng(), typename decltype(d)::param_type{min, max});
+}
 
 } // namespace nvs
 
