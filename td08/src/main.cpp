@@ -109,7 +109,7 @@ void printFraction(std::string description, const vector<Fraction> &fractions) {
   int i = 1;
   cout << description.data() << endl;
 
-  for (const auto fraction : fractions) {
+  for (const auto &fraction : fractions) {
     cout << fraction << (i++ % 16 == 0 ? "\n" : " ");
   }
 
@@ -130,7 +130,7 @@ void printFraction(std::string description, const vector<std::reference_wrapper<
   cout << description.data() << endl;
 
   for (const auto &fraction : fractions) {
-    cout << fraction.get() << (i++ % 16 == 0 ? "\n" : " ");
+    cout << fraction << (i++ % 16 == 0 ? "\n" : " ");
   }
 
   cout << endl << endl;

@@ -14,22 +14,18 @@ namespace dev3::utils {
     void exercise(const std::string &name, const std::function<void()> &exe);
 }
 
+template<class T>
+std::ostream &operator<<(std::ostream &out, const std::vector<T> &container) {
+  bool first = true;
 
-/**
- * @author Romain ABSIL
- */
-template<template<class, class ...> class Container, class T, class ... OtherParams>
-std::ostream &operator<<(std::ostream &out, const Container<T, OtherParams...> &container) {
-    bool first = true;
+  out << "{";
+  for (const T &t : container) {
+    if (!first) {
+      out << ", ";
+    }
 
-    out << "{";
-    for (const T &t : container) {
-        if (!first) {
-            out << ", ";
-        }
-
-        out << t;
-        first = false;
+    out << t;
+    first = false;
     }
     out << "}";
 
