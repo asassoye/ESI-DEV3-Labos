@@ -10,17 +10,17 @@
 /**
  * @brief Namespace of mathematical functions.
  */
-namespace dev3::math {
-    /**
-     * @brief Checks if a number is prime
-     */
-    bool isPrime(unsigned number);
+namespace g54327::math {
+/**
+ * @brief Checks if a number is prime
+ */
+bool isPrime(unsigned number);
 
-    unsigned nextPrime(unsigned actualPrime);
+unsigned nextPrime(unsigned actualPrime);
 
-    std::vector<unsigned> primeList(unsigned min, unsigned max);
+std::vector<unsigned> primeList(unsigned min, unsigned max);
 
-    std::pair<int, int> euclideanDivision(int dividend, int divisor);
+std::pair<int, int> euclideanDivision(int dividend, int divisor);
 }
 
 #endif //DEV3_MATHESI_HPP

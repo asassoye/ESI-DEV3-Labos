@@ -8,17 +8,16 @@
 #include <numeric>
 #include "fraction.hpp"
 
-namespace dev3 {
-    Fraction::Fraction(int numerator, int denominator) :
-            Fraction(
-                    dev3::sign(numerator * denominator),
-                    std::abs(numerator),
-                    std::abs(denominator)
-            ) {}
+namespace g54327 {
+Fraction::Fraction(int numerator, int denominator) :
+    Fraction(
+        g54327::sign(numerator * denominator),
+        std::abs(numerator),
+        std::abs(denominator)
+    ) {}
 
-
-    Fraction::Fraction(Sign sign, unsigned numerator,
-                       unsigned denominator) :
+Fraction::Fraction(Sign sign, unsigned numerator,
+                   unsigned denominator) :
             sign_{sign},
             numerator_{reduce(numerator, denominator).first},
             denominator_{reduce(numerator, denominator).second} {

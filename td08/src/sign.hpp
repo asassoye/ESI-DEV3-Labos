@@ -13,23 +13,23 @@
 /*!
  * \brief Sign namespace.
  */
-namespace dev3 {
+namespace g54327 {
 
 /*!
  * \brief Énumération fortement typée représentant un [signe]
  *        (https://fr.wikipedia.org/wiki/Signe_(arithm%C3%A9tique))
  *        au sens mathématique.
  */
-    enum class Sign {
-        /*!
-         * \brief Constante d'énumération destinée à représenter le
-         *        signe « plus » (+), c'est-à-dire celui d'un
-         *        [nombre (strictement) positif]
-         *        (https://fr.wikipedia.org/wiki/Nombre_positif).
-         *
-         * Lorsqu'on transtype Sign::PLUS en entier, on obtient la
-         * valeur +1.
-         */
+enum class Sign {
+  /*!
+   * \brief Constante d'énumération destinée à représenter le
+   *        signe « plus » (+), c'est-à-dire celui d'un
+   *        [nombre (strictement) positif]
+   *        (https://fr.wikipedia.org/wiki/Nombre_positif).
+   *
+   * Lorsqu'on transtype Sign::PLUS en entier, on obtient la
+   * valeur +1.
+   */
         PLUS = +1,
 
         /*!

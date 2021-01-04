@@ -11,7 +11,7 @@
 #include "fraction_constexpr.hpp"
 
 using namespace std;
-using namespace dev3;
+using namespace g54327;
 
 const size_t N_FRACTIONS = 50;
 
@@ -84,7 +84,7 @@ void exe89() {
     try {
       fractions.emplace_back(
           Fraction{
-              dev3::sign(std::get<0>(tuple)),
+              g54327::sign(std::get<0>(tuple)),
               std::get<1>(tuple),
               std::get<2>(tuple)
           });

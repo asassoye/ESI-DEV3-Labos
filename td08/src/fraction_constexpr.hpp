@@ -17,7 +17,7 @@
 
 #include "sign.hpp"
 
-namespace dev3 {
+namespace g54327 {
 
 /*!
  * \brief Classe représentant une [fraction]
@@ -571,7 +571,11 @@ namespace dev3 {
     }
 
     inline constexpr Fraction inverse(const Fraction &fraction) {
-        return Fraction(fraction.sign(), fraction.denominator(), fraction.numerator());
+      return Fraction{
+          fraction.sign(),
+          fraction.numerator() != 0 ? fraction.denominator() : fraction.numerator(),
+          fraction.numerator() != 0 ? fraction.numerator() : fraction.denominator()
+      };
     }
 
     constexpr std::tuple<Sign, unsigned, unsigned, unsigned>
@@ -668,7 +672,7 @@ namespace dev3 {
 
 constexpr Fraction::Fraction(int numerator, int denominator) noexcept(false):
     Fraction(
-        dev3::sign(numerator * denominator),
+        g54327::sign(numerator * denominator),
         std::abs(numerator),
         std::abs(denominator)
     ) {}
@@ -700,12 +704,16 @@ constexpr Fraction::Fraction(int numerator, int denominator) noexcept(false):
 
     constexpr std::tuple<Sign, unsigned, unsigned, unsigned>
     Fraction::unit_form() const {
-        return std::tuple<Sign, unsigned, unsigned, unsigned>{
-                sign(),
-                numerator() / denominator(),
-                numerator(),
-                denominator()
-        };
+      unsigned unit = numerator() / denominator();
+      Fraction
+          f =
+          operator-(Fraction{static_cast<int>(numerator()), static_cast<int>(denominator())}, Fraction{(int) unit, 1});
+      return std::tuple<Sign, unsigned, unsigned, unsigned>{
+          sign(),
+          numerator() / denominator(),
+          f.numerator(),
+          f.denominator()
+      };
     }
 
     constexpr inline std::pair<unsigned, unsigned> Fraction::reduce(unsigned int numerator, unsigned int denominator) {

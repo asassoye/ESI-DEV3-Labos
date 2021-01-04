@@ -4,17 +4,17 @@
 #include <algorithm>
 #include "utilscpp.hpp"
 
-namespace dev3::utils {
-    std::string box(const std::string &string) {
-        return "======= " + BOX + "  " + string + "  " + RESET + " =======";
-    }
+namespace g54327::utils {
+std::string box(const std::string &string) {
+  return "======= " + BOX + "  " + string + "  " + RESET + " =======";
+}
 
-    std::string cpu(const double &ms) {
-        return BOLD + "========= " + ITALIC + std::to_string(ms) + " ms =========" + RESET;
-    }
+std::string cpu(const double &ms) {
+  return BOLD + "========= " + ITALIC + std::to_string(ms) + " ms =========" + RESET;
+}
 
-    void exercise(const std::string &name, const std::function<void()> &exe) {
-        std::cout << box(name).data() << std::endl << std::endl;
+void exercise(const std::string &name, const std::function<void()> &exe) {
+  std::cout << box(name).data() << std::endl << std::endl;
         clock_t start = clock();
         exe();
         clock_t end = clock();

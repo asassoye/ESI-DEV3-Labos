@@ -34,9 +34,9 @@ unsigned primeFactor(std::map<unsigned, unsigned> &result, unsigned value) {
         result.clear();
     }
 
-    if (dev3::math::isPrime(value)) {
-        result.insert(std::pair<unsigned, unsigned>(value, 1));
-        return 1;
+    if (g54327::math::isPrime(value)) {
+      result.insert(std::pair<unsigned, unsigned>(value, 1));
+      return 1;
     }
 
     unsigned count = 0;

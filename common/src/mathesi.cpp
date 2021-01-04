@@ -3,17 +3,17 @@
 #include <exception>
 #include "mathesi.hpp"
 
-namespace dev3::math {
-    bool isPrime(unsigned number) {
-        int max = (int) sqrt(number);
+namespace g54327::math {
+bool isPrime(unsigned number) {
+  int max = (int) sqrt(number);
 
-        if (number <= 1) {
-            return false;
-        }
+  if (number <= 1) {
+    return false;
+  }
 
-        if (number != 2 && number % 2 == 0) {
-            return false;
-        }
+  if (number != 2 && number % 2 == 0) {
+    return false;
+  }
 
         for (int i = 3; i <= max; ++(++i)) {
             if (number % i == 0) {

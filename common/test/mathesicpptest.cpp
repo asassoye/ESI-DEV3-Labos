@@ -11,8 +11,8 @@ TEST_CASE("bool isPrime(unsigned number)", "[isPrime]") {
     size_t i_size = input.size();
     for (size_t i = 0; i < i_size; ++i) {
         SECTION("isPrime(" + std::to_string(input[i]) + ") = " + (output[i] ? "true" : "false")) {
-            REQUIRE(dev3::math::isPrime(input[i]) == output[i]);
-        }
+        REQUIRE(g54327::math::isPrime(input[i]) == output[i]);
+      }
     }
 }
 
@@ -24,15 +24,15 @@ TEST_CASE("unsigned nextPrime(unsigned actualPrime)", "[nextPrime]") {
     size_t i_size = input.size();
     for (size_t i = 0; i < i_size; ++i) {
         SECTION("nextPrime(" + std::to_string(input[i]) + ") = " + std::to_string(output[i])) {
-            REQUIRE(dev3::math::nextPrime(input[i]) == output[i]);
-        }
+        REQUIRE(g54327::math::nextPrime(input[i]) == output[i]);
+      }
     }
 }
 
 TEST_CASE("std::vector<unsigned> primeList(unsigned min, unsigned max);", "[primeList]") {
-    std::vector<unsigned> v = dev3::math::primeList(200, 350);
-    std::vector<unsigned> wanted = {211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307,
-                                    311, 313, 317, 331, 337, 347, 349};
+  std::vector<unsigned> v = g54327::math::primeList(200, 350);
+  std::vector<unsigned> wanted = {211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307,
+                                  311, 313, 317, 331, 337, 347, 349};
     REQUIRE(v.size() == wanted.size());
 
     size_t i_size = v.size();
@@ -50,7 +50,7 @@ TEST_CASE("std::pair<int, int> euclideanDivision(int dividend, int divisor)", "[
     for (int i = 1; i <= 27; ++i) {
         divisor = i;
         SECTION("euclideanDivision(" + std::to_string(dividend) + ", " + std::to_string(divisor) + ")") {
-            pair = dev3::math::euclideanDivision(dividend, divisor);
+        pair = g54327::math::euclideanDivision(dividend, divisor);
             REQUIRE(dividend == divisor * pair.first + pair.second);
         }
     }

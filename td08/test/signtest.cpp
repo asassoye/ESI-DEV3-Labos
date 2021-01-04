@@ -1,7 +1,7 @@
 #include "catch2/catch.hpp"
 #include "../src/sign.hpp"
 
-using namespace dev3;
+using namespace g54327;
 
 TEST_CASE("constexpr Sign opposite(Sign sign)", "[opposite]") {
     REQUIRE(opposite(Sign::PLUS) == Sign::MINUS);
