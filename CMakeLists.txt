@@ -62,3 +62,4 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/td09" "${PROJECT_SOURCE_DIR}/td09/build/
 # INTERROGATIONS
 #########################################################################################
 add_subdirectory("${PROJECT_SOURCE_DIR}/i1" "${PROJECT_SOURCE_DIR}/i1/build/${CMAKE_BUILD_TYPE}")
+add_subdirectory("${PROJECT_SOURCE_DIR}/i2" "${PROJECT_SOURCE_DIR}/i2/build/${CMAKE_BUILD_TYPE}")

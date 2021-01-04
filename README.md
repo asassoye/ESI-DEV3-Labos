@@ -32,6 +32,10 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   │   └── statsample.h
 │   ├── CMakeLists.txt
 │   └── interro.pdf
+├── i2
+│   ├── src
+│   │   └── main.cpp
+│   └── CMakeLists.txt
 ├── td01
 │   ├── src
 │   │   └── main.c
@@ -98,6 +102,7 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   │   ├── sign.cpp
 │   │   └── sign.hpp
 │   ├── test
+│   │   ├── fraction_all.cpp
 │   │   ├── fraction_constexprTest.cpp
 │   │   ├── fractiontest.cpp
 │   │   └── signtest.cpp
@@ -106,8 +111,16 @@ Mes solutions des TD's de l'UE DEV3 à l'École Supérieur d'Informatique de Bru
 │   └── td08_cpp_withAppendix.pdf
 ├── td09
 │   ├── src
-│   │   └── main.cpp
-│   └── CMakeLists.txt
+│   │   ├── draw.hpp
+│   │   ├── item.hpp
+│   │   ├── lotto.hpp
+│   │   ├── main.cpp
+│   │   ├── parameter.hpp
+│   │   └── pronostic.hpp
+│   ├── test
+│   ├── CMakeLists.txt
+│   ├── td09_cpp.pdf
+│   └── td09_cpp_withAppendix.pdf
 ├── CMakeLists.txt
 ├── doxygen
 ├── LICENSE
@@ -154,21 +167,40 @@ avec:
 - env ∈ {`Release`,`Debug`}:
 - td ∈ {`td01`, `td02`,`td03`,`td04`,`td01`,`td05`,`td06`,`td07`, `td08`, `td09`}
 
-### Executer le main d'une interrogation
+### Executer une interrogation
 
 Après avoir compilé:
 
 ```bash
-$ ./i1/build/interro1
+$ ./i1/build/{env}/interro1
 ```
 
-Si vous n'arrivez pas a compiler l'interrogation avec la commande `make` voici une alternative
+avec `env` ∈ {`Release`,`Debug`}:
+
+*Si vous n'arrivez pas a compiler l'interrogation avec la commande `make` voici une alternative*
 
 ```bash
 $ make interro1
 ```
 
+### Executer l'examen de janvier
+
+Après avoir compilé:
+
+```bash
+$ ./i2/build/{env}/examen
+```
+
+avec `env` ∈ {`Release`,`Debug`}:
+
+*Si vous n'arrivez pas a compiler l'interrogation avec la commande `make` voici une alternative*
+
+```bash
+$ make examen
+```
+
 ### Clean les builds
+
 ```bash
 $ make clean
 ```

@@ -30,29 +30,29 @@ enum class Sign {
    * Lorsqu'on transtype Sign::PLUS en entier, on obtient la
    * valeur +1.
    */
-        PLUS = +1,
+  PLUS = +1,
 
-        /*!
-         * \brief Constante d'énumération destinée à représenter le
-         *        signe « moins » (-), c'est-à-dire celui d'un
-         *        [nombre (strictement) négatif]
-         *        (https://fr.wikipedia.org/wiki/Nombre_n%C3%A9gatif).
-         *
-         * Lorsqu'on transtype Sign::MINUS en entier, on obtient la
-         * valeur -1.
-         */
-        MINUS = -1,
+  /*!
+   * \brief Constante d'énumération destinée à représenter le
+   *        signe « moins » (-), c'est-à-dire celui d'un
+   *        [nombre (strictement) négatif]
+   *        (https://fr.wikipedia.org/wiki/Nombre_n%C3%A9gatif).
+   *
+   * Lorsqu'on transtype Sign::MINUS en entier, on obtient la
+   * valeur -1.
+   */
+  MINUS = -1,
 
-        /*!
-         * \brief Constante d'énumération destinée à représenter le
-         *        signe du nombre [zéro]
-         *        (https://fr.wikipedia.org/wiki/Z%C3%A9ro).
-         *
-         * Lorsqu'on transtype Sign::ZERO en entier, on obtient la
-         * valeur 0.
-         */
-        ZERO = 0
-    };
+  /*!
+   * \brief Constante d'énumération destinée à représenter le
+   *        signe du nombre [zéro]
+   *        (https://fr.wikipedia.org/wiki/Z%C3%A9ro).
+   *
+   * Lorsqu'on transtype Sign::ZERO en entier, on obtient la
+   * valeur 0.
+   */
+  ZERO = 0
+};
 
 // prototypes (pas vraiment nécesssaire si fonction inline)
 
@@ -63,7 +63,7 @@ enum class Sign {
  *
  * \return le signe de `value`.
  */
-    constexpr Sign sign(int value);
+constexpr Sign sign(int value);
 
 /*!
  * \brief Fonction retournant le signe opposé d'un signe donné.
@@ -82,7 +82,7 @@ enum class Sign {
  *
  * \see operator-(Sign).
  */
-    constexpr Sign opposite(Sign sign);
+constexpr Sign opposite(Sign sign);
 
 /*!
  * \brief Opérateur retournant le signe opposé d'un signe donné.
@@ -101,7 +101,7 @@ enum class Sign {
  *
  * \see opposite(Sign).
  */
-    constexpr Sign operator-(Sign sign);
+constexpr Sign operator-(Sign sign);
 
 /*!
  * \brief Fonction retournant le signe produit de deux nvs::Sign.
@@ -130,7 +130,7 @@ enum class Sign {
  *
  * \see operator*(Sign, Sign).
  */
-    constexpr Sign product(Sign lhs, Sign rhs);
+constexpr Sign product(Sign lhs, Sign rhs);
 
 /*!
  * \brief Opérateur retournant le signe produit de deux nvs::Sign.
@@ -159,7 +159,7 @@ enum class Sign {
  *
  * \see product(Sign, Sign).
  */
-    constexpr Sign operator*(Sign lhs, Sign rhs);
+constexpr Sign operator*(Sign lhs, Sign rhs);
 
 /*!
  * \brief Fonction de conversion d'un nvs::Sign en std::string.
@@ -168,7 +168,7 @@ enum class Sign {
  *
  * \return une std::string représentant `sign`.
  */
-    inline std::string to_string(Sign sign);
+inline std::string to_string(Sign sign);
 
 /*!
  * \brief Opérateur d'injection d'un nvs::Sign dans un flux en
@@ -179,66 +179,60 @@ enum class Sign {
  *
  * \return le flux après injection.
  */
-    inline std::ostream &operator<<(std::ostream &out, Sign sign);
+inline std::ostream &operator<<(std::ostream &out, Sign sign);
 
-    constexpr Sign sign(int value) {
-        if (value < 0)
-            return Sign::MINUS;
-        if (value > 0) {
-            return Sign::PLUS;
-        }
-        return Sign::ZERO;
-    }
+constexpr Sign sign(int value) {
+  if (value < 0)
+    return Sign::MINUS;
+  if (value > 0) {
+    return Sign::PLUS;
+  }
+  return Sign::ZERO;
+}
 
-    constexpr Sign opposite(Sign sign) {
-        switch (sign) {
-            case Sign::PLUS:
-                return Sign::MINUS;
-            case Sign::MINUS:
-                return Sign::PLUS;
-            case Sign::ZERO:
-            default:
-                return Sign::ZERO;
-        }
-    }
+constexpr Sign opposite(Sign sign) {
+  switch (sign) {
+    case Sign::PLUS:return Sign::MINUS;
+    case Sign::MINUS:return Sign::PLUS;
+    case Sign::ZERO:
+    default:return Sign::ZERO;
+  }
+}
 
-    constexpr Sign operator-(Sign sign) {
-        return opposite(sign);
-    }
+constexpr Sign operator-(Sign sign) {
+  return opposite(sign);
+}
 
-    constexpr Sign product(Sign lhs, Sign rhs) {
-        if (lhs == Sign::ZERO || rhs == Sign::ZERO)
-            return Sign::ZERO;
-        if (opposite(lhs) == rhs) {
-            return Sign::MINUS;
-        }
-        return Sign::PLUS;
-    }
+constexpr Sign product(Sign lhs, Sign rhs) {
+  if (lhs == Sign::ZERO || rhs == Sign::ZERO)
+    return Sign::ZERO;
+  if (opposite(lhs) == rhs) {
+    return Sign::MINUS;
+  }
+  return Sign::PLUS;
+}
 
-    constexpr Sign operator*(Sign lhs, Sign rhs) {
-        return product(lhs, rhs);
-    }
+constexpr Sign operator*(Sign lhs, Sign rhs) {
+  return product(lhs, rhs);
+}
 
-    constexpr bool operator<(Sign lhs, Sign rhs) {
-        return (lhs == Sign::MINUS && rhs != Sign::MINUS) || (lhs == Sign::ZERO && rhs == Sign::PLUS);
-    }
+constexpr bool operator<(Sign lhs, Sign rhs) {
+  return (lhs == Sign::MINUS && rhs != Sign::MINUS) || (lhs == Sign::ZERO && rhs == Sign::PLUS);
+}
 
-    inline std::string to_string(Sign sign) {
-        switch (sign) {
-            case Sign::MINUS:
-                return "MINUS (-)";
-            case Sign::PLUS:
-                return "PLUS (+)";
-            case Sign::ZERO:
-            default:
-                return "ZERO (0)";
-        }
-    }
+inline std::string to_string(Sign sign) {
+  switch (sign) {
+    case Sign::MINUS:return "MINUS (-)";
+    case Sign::PLUS:return "PLUS (+)";
+    case Sign::ZERO:
+    default:return "ZERO (0)";
+  }
+}
 
-    inline std::ostream &operator<<(std::ostream &out, Sign sign) {
-        out << to_string(sign);
-        return out;
-    }
+inline std::ostream &operator<<(std::ostream &out, Sign sign) {
+  out << to_string(sign);
+  return out;
+}
 }
 
 #endif // DEV3_SIGN_H
