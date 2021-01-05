@@ -60,5 +60,20 @@ int main() {
     cout << " " << mv << endl;
   }
 
+  cout << endl << "===Exercice 7===" << endl;
+  std::vector<std::reference_wrapper<const g54327::m_vector>> rw{v.begin(), v.end()};
+
+  cout << endl << "===Exercice 8===" << endl;
+  std::sort(rw.begin(), rw.end(), [](const g54327::m_vector &l, const g54327::m_vector &r) {
+    if (l.size() == r.size()) {
+      return l < r;
+    }
+    return l.size() < r.size();
+  });
+
+  for (auto &mv : rw) {
+    cout << " " << mv << endl;
+  }
+
   return 0;
 }
