@@ -19,7 +19,7 @@ interro1: clean
 	mkdir -p ./i1/build/Release; cd ./i1/build/Release; gcc -o interro1 -std=c11 -Wall -pedantic -O3 -lm ../src/main.c ../src/primestat.c ../src/statsample.c ../resources/td04.c ../resources/PrimeFactor.c ../resources/PrimeFactorization.c ../resources/mathesi.c
 
 examen: clean
-	mkdir -p ./i2/build/Release; cd ./i2/build/Release; g++ -o examen -std=c++17 -Wall -pedantic -O3 -lm ../../src/main.cpp
+	mkdir -p ./i2/build/Release; cd ./i2/build/Release; g++ -o examen -std=c++17 -Wall -pedantic -O3 -lm ../../src/main.cpp ../../resources/data.cpp
 
 tree:
 	tree --dirsfirst -I 'build|resources|docs' .
