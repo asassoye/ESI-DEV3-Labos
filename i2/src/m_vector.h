@@ -151,7 +151,7 @@ double &m_vector::at(std::size_t index) {
 
 std::string m_vector::to_string() const {
   std::string s = std::to_string(size_) + " : ";
-  for (int i = 0; i < size_; ++i) {
+  for (size_t i = 0; i < size_; ++i) {
     s += std::to_string(data_[i]);
   }
   return s;
@@ -199,7 +199,7 @@ double operator*(const m_vector &lhs, const m_vector &rhs) {
   validate_size(lhs, rhs);
 
   double response = 0;
-  for (auto i = 0; i < lhs.size(); ++i) {
+  for (size_t i = 0; i < lhs.size(); ++i) {
     response += lhs[i] * rhs[i];
   }
   return response;
