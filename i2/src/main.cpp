@@ -21,7 +21,7 @@ int main() {
   unsigned size_error = 0;
 
   for (auto &element : generated) {
-    int nb;
+    size_t nb;
     try {
       nb = std::stoi(get<0>(element));
     } catch (std::invalid_argument &e) {

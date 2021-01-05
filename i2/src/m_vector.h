@@ -69,7 +69,8 @@ inline bool operator<(const m_vector &lhs, const m_vector &rhs);
 
 void m_vector::validate_index(std::size_t index) const {
   if (index >= size_) {
-    throw std::invalid_argument("erreur de taille");
+    throw std::invalid_argument(
+        "erreur de taille avec (index, size) : " + std::to_string(index) + " " + std::to_string(size_));
   }
 }
 
