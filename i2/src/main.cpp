@@ -14,7 +14,7 @@ using namespace he2b;
 
 int main() {
   std::vector<g54327::m_vector> v;
-  auto generated = nvs::data(200);
+  auto generated = nvs::data(50);
   unsigned string_error = 0;
   unsigned string_zero_error = 0;
   unsigned size_error = 0;
@@ -54,6 +54,11 @@ int main() {
        << " 3) Le nombre de std::string est different de la taille du vecteur : " << size_error << endl
        << " 4) Le nombre de tuples sans erreurs : " << v.size() << endl;
 
-  ;
+  cout << endl << "===Exercice 6===" << endl;
+
+  for (auto &mv : v) {
+    cout << " " << mv << endl;
+  }
+
   return 0;
 }

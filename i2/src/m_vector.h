@@ -152,7 +152,7 @@ double &m_vector::at(std::size_t index) {
 std::string m_vector::to_string() const {
   std::string s = std::to_string(size_) + " : ";
   for (size_t i = 0; i < size_; ++i) {
-    s += std::to_string(data_[i]);
+    s += std::to_string(data_[i]) + " ";
   }
   return s;
 }
