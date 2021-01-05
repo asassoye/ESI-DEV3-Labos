@@ -13,6 +13,7 @@ using namespace std;
 using namespace he2b;
 
 int main() {
+  cout << "===Exercice 4===" << endl;
   std::vector<g54327::m_vector> v;
   auto generated = nvs::data(50);
   unsigned string_error = 0;
@@ -47,7 +48,7 @@ int main() {
     v.emplace_back(values);
   }
 
-  cout << "===Exercice 5===" << endl;
+  cout << endl << "===Exercice 5===" << endl;
 
   cout << " 1) Le nombre d'erreurs de format de std::string : " << string_error << endl
        << " 2) le nombre de std::string égal a zero : " << string_zero_error << endl
