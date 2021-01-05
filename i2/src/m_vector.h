@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <string>
 #include <ostream>
+#include <algorithm>
+#include <cmath>
 
 // TODO : éventuellement ajouter include
 
@@ -66,127 +68,157 @@ inline bool operator<(const m_vector &lhs, const m_vector &rhs);
 // implémentations des méthodes inline
 
 void m_vector::validate_index(std::size_t index) const {
-  // TODO : compléter / modifier
+  if (index >= size_) {
+    throw std::invalid_argument("erreur de taille");
+  }
 }
 
 m_vector::m_vector(std::size_t size) :
-// TODO : compléter / modifier
-    size_{},
-    data_{} {}
+    size_{size},
+    data_(size, 0.0) {
+  if (size == 0) {
+    throw std::invalid_argument("size est nul");
+  }
+}
 
 m_vector::m_vector(std::size_t size, double value) :
-// TODO : compléter / modifier
-    size_{},
-    data_{} {}
+    size_{size},
+    data_(size, value) {
+  if (size == 0) {
+    throw std::invalid_argument("size est nul");
+  }
+}
 
 m_vector::m_vector(std::initializer_list<double> data) :
-// TODO : compléter / modifier
-    size_{},
-    data_{} {}
+    size_{data.size()},
+    data_{data.begin(), data.end()} {
+  if (data.size() == 0) {
+    throw std::invalid_argument("le vecteur est vide");
+  }
+}
 
 m_vector::m_vector(std::vector<double> data) :
-// TODO : compléter / modifier
-    size_{},
-    data_{} {}
+    size_{data.size()},
+    data_{data.begin(), data.end()} {
+  if (data.size() == 0) {
+    throw std::invalid_argument("le vecteur est vide");
+  }
+}
 
 std::size_t m_vector::size() const {
-  // TODO : compléter / modifier
-  return {};
+  return size_;
 }
 
 bool m_vector::equal_size(const m_vector &v) const {
-  // TODO : compléter / modifier
-  return {};
+  return size_ == v.size();
 }
 
 const std::vector<double> &m_vector::data() const {
-  // TODO : compléter / modifier
-  return {};
+  return data_;
 }
 
 void m_vector::data(const std::vector<double> &new_data) {
-  // TODO : compléter / modifier
+  if (!equal_size(new_data)) {
+    throw std::invalid_argument("Le nouveau vecteur n'est pas de bonne taille");
+  }
+
+  data_ = {new_data.begin(), new_data.end()};
 }
 
 double m_vector::operator[](std::size_t index) const {
-  // TODO : compléter / modifier
-  return {};
+  return data_[index];
 }
 
 double &m_vector::operator[](std::size_t index) {
-  // TODO : compléter / modifier
-  // FIXME : erreur de compilation ici
-  return {};
+  return data_[index];
 }
 
 double m_vector::at(std::size_t index) const {
-  // TODO : compléter / modifier
-  return {};
+  if (index >= size()) {
+    throw std::invalid_argument("l'index excede le vector");
+  }
+
+  return data_[index];
 }
 
 double &m_vector::at(std::size_t index) {
-  // TODO : compléter / modifier
-  // FIXME : erreur de compilation ici
-  return {};
+  if (index >= size()) {
+    throw std::invalid_argument("l'index excede le vector");
+  }
+
+  return data_[index];
 }
 
 std::string m_vector::to_string() const {
-  // TODO : compléter / modifier
-  return {};
+  std::string s = std::to_string(size_) + " : ";
+  for (int i = 0; i < size_; ++i) {
+    s += std::to_string(data_[i]);
+  }
+  return s;
 }
 
 m_vector::operator double() const {
-  // TODO : compléter / modifier
-  return {};
+  return norm(*this);
 }
 
 // implémentations des fonctions inline
 
 std::ostream &operator<<(std::ostream &out, const m_vector &v) {
-  // TODO : compléter / modifier
-  // FIXME : erreur de compilation ici
-  return {};
+  return out << v.to_string();
 }
 
 std::string to_string(const m_vector &v) {
-  // TODO : compléter / modifier
-  return {};
+  return v.to_string();
 }
 
 bool equal_size(const m_vector &lhs, const m_vector &rhs) {
-  // TODO : compléter / modifier
-  return {};
+  return lhs.equal_size(rhs);
 }
 
 inline void validate_size(const m_vector &lhs, const m_vector &rhs) {
-  // TODO : compléter / modifier
+  if (!equal_size(lhs, rhs)) {
+    throw std::invalid_argument("size not equal");
+  }
 }
 
 m_vector operator*(double d, const m_vector &v) {
-  // TODO : compléter / modifier
-  return {};
+  std::vector<double> dat(v.size());
+  std::generate(dat.begin(), dat.end(), [&v, d]() -> double {
+    static size_t i = 0;
+    return v[i++] * d;
+  });
+
+  return dat;
 }
 
 m_vector operator*(const m_vector &v, double d) {
-  // TODO : compléter / modifier
-  return {};
+  return operator*(d, v);
 }
 
 double operator*(const m_vector &lhs, const m_vector &rhs) {
-  // TODO : compléter / modifier
-  return {};
+  validate_size(lhs, rhs);
+
+  double response = 0;
+  for (auto i = 0; i < lhs.size(); ++i) {
+    response += lhs[i] * rhs[i];
+  }
+  return response;
 }
 
 double norm(const m_vector &v) {
-  // TODO : compléter / modifier
-  return {};
+  return sqrt(operator*(v, v));
 }
 
 bool operator<(const m_vector &lhs, const m_vector &rhs) {
-  // TODO : compléter / modifier
-  return {};
+  if (equal_size(lhs, rhs)) {
+    if (lhs.data() == rhs.data()) {
+      return false;
+    }
+    return norm(lhs) < norm(rhs);
+  }
+  return lhs.size() < rhs.size();
 }
 
-} // namespace he2b::nvs
+} // namespace he2b::g54327
 
 #endif // M_VECTOR_H
