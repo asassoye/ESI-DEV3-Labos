@@ -14,7 +14,7 @@ using namespace he2b;
 
 int main() {
   std::vector<g54327::m_vector> v;
-  auto generated = nvs::data(20);
+  auto generated = nvs::data(200);
   unsigned string_error = 0;
   unsigned string_zero_error = 0;
   unsigned size_error = 0;
@@ -28,7 +28,7 @@ int main() {
       continue;
     }
 
-    std::vector<double> values = get<1>(element);
+    std::vector<double> &values = get<1>(element);
 
     if (nb < 0) {
       ++string_error;
@@ -46,5 +46,14 @@ int main() {
     }
     v.emplace_back(values);
   }
+
+  cout << "===Exercice 5===" << endl;
+
+  cout << " 1) Le nombre d'erreurs de format de std::string : " << string_error << endl
+       << " 2) le nombre de std::string égal a zero : " << string_zero_error << endl
+       << " 3) Le nombre de std::string est different de la taille du vecteur : " << size_error << endl
+       << " 4) Le nombre de tuples sans erreurs : " << v.size() << endl;
+
+  ;
   return 0;
 }
