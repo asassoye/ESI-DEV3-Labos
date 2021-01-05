@@ -71,6 +71,7 @@ int main() {
     return l.size() < r.size();
   });
 
+  cout << endl << "===Exercice 9===" << endl;
   for (auto &mv : rw) {
     cout << " " << mv << endl;
   }
